@@ -26,6 +26,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/jason/Desktop/Aplicaciones/WebApplication-aspnet/WebApplication-aspnet
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/jason/Desktop/Aplicaciones/WebApplication-aspnet/WebApplication-aspnet/Views/City/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2l0eS9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jason/Desktop/Aplicaciones/WebApplication-aspnet/WebApplication-aspnet/Views/City/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2l0eS9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jason/Desktop/Aplicaciones/WebApplication-aspnet/WebApplication-aspnet/Views/City/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2l0eS9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jason/Desktop/Aplicaciones/WebApplication-aspnet/WebApplication-aspnet/Views/City/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2l0eS9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jason/Desktop/Aplicaciones/WebApplication-aspnet/WebApplication-aspnet/Views/City/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2l0eS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/jason/Desktop/Aplicaciones/WebApplication-aspnet/WebApplication-aspnet/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

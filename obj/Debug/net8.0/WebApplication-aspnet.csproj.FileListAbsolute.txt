@@ -258,3 +258,4 @@
 /Users/jason/Desktop/Aplicaciones/WebApplication-aspnet/WebApplication-aspnet/bin/Debug/net8.0/runtimes/win/lib/net7.0/System.Windows.Extensions.dll
 /Users/jason/Desktop/Aplicaciones/WebApplication-aspnet/WebApplication-aspnet/obj/Debug/net8.0/WebApplication-aspnet.csproj.AssemblyReference.cache
 /Users/jason/Desktop/Aplicaciones/WebApplication-aspnet/WebApplication-aspnet/obj/Debug/net8.0/WebAppli.8A09828D.Up2Date
+/Users/jason/Desktop/Aplicaciones/WebApplication-aspnet/WebApplication-aspnet/obj/Debug/net8.0/WebApplication-aspnet.sourcelink.json

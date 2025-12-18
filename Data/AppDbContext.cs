@@ -16,5 +16,6 @@ namespace WebApplication_aspnet.Data
         // Esto le dice a Entity Framework que cree una tabla llamada "Users"
         // basada en tu modelo 'User'
         public DbSet<User> Users { get; set; }
+        public DbSet<City> Cities { get; set; }
     }
 }

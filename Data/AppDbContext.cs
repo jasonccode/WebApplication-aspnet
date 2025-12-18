@@ -17,5 +17,6 @@ namespace WebApplication_aspnet.Data
         // basada en tu modelo 'User'
         public DbSet<User> Users { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<Office> Offices { get; set; }
     }
 }

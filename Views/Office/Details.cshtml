@@ -1,0 +1,25 @@
+@model WebApplication_aspnet.Models.Office
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Detalles de Oficinas</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-3">Nombre</dt>
+        <dd class = "col-sm-9">@Html.DisplayFor(model => model.Sname)</dd>
+
+        <dt class = "col-sm-3">Dirección</dt>
+        <dd class = "col-sm-9">@Html.DisplayFor(model => model.Saddress)</dd>
+
+        <dt class = "col-sm-3">Fecha Creación</dt>
+        <dd class = "col-sm-9">@Html.DisplayFor(model => model.Dcreated_at)</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Nid_office" class="btn btn-warning">Editar</a> 
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+</div>

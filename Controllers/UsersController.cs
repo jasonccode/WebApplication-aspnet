@@ -54,11 +54,9 @@ namespace WebApplication_aspnet.Controllers
         }
 
         // GET: Users/Edit/5 (Mostrar formulario con datos)
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null) return NotFound();
-
-            var user = await _userService.GetByIdAsync(id.Value);
+            var user = await _userService.GetByIdAsync(id);
             if (user == null) return NotFound();
 
             return View(user);

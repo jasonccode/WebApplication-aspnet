@@ -1,3 +1,22 @@
+@model WebApplication_aspnet.Models.City
+
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles";
 }
+
+<h1>Detalles del Usuario</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-3">Nombre</dt>
+        <dd class = "col-sm-9">@Html.DisplayFor(model => model.Sname)</dd>
+
+        <dt class = "col-sm-3">Fecha Creación</dt>
+        <dd class = "col-sm-9">@Html.DisplayFor(model => model.Dcreated_at)</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Nid_city" class="btn btn-warning">Editar</a> 
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+</div>

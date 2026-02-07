@@ -71,3 +71,69 @@ DELETE FROM Users WHERE Nid_user = 5;
 -- Verificamos que ya no exista
 SELECT * FROM Users;
 GO
+
+-- =============================================
+-- 3. CREACIÓN DE LA TABLA REQUEST Y PROCEDIMIENTOS ALMACENADOS
+-- =============================================
+
+CREATE TABLE Request (
+    Id_request INT IDENTITY(1,1) PRIMARY KEY,
+    Title NVARCHAR(100) NOT NULL,
+    Description NVARCHAR(100) NOT NULL,
+    Status NVARCHAR(150) NOT NULL,
+    Dcreated_at DATETIME NOT NULL DEFAULT GETDATE(), -- Fecha automática si no se envía
+);
+GO
+
+-- SP: Listar Request
+CREATE PROCEDURE sp_get_all_requests
+AS
+BEGIN
+    SELECT * FROM Request;
+END
+GO
+
+-- SP: Insertar Request
+CREATE PROCEDURE sp_add_request
+    @Title NVARCHAR(100),
+    @Description NVARCHAR(100),
+    @Status NVARCHAR(150)
+AS
+BEGIN
+    INSERT INTO Request (Title, Description, Status)
+    VALUES (@Title, @Description, @Status);
+END
+GO
+
+-- SP: Actualizar Request
+CREATE PROCEDURE sp_update_request 
+    @Id_request INT,
+    @Title NVARCHAR(100),
+    @Description NVARCHAR(100),
+    @Status NVARCHAR(150)
+AS
+BEGIN
+    UPDATE Request
+    SET Title = @Title, Description = @Description, Status = @Status
+    WHERE Id_request = @Id_request;
+END
+GO
+
+-- SP: Eliminar Request
+CREATE PROCEDURE sp_delete_request
+    @Id_request INT
+AS
+BEGIN
+    DELETE FROM Request WHERE Id_request = @Id_request;
+END
+GO
+
+--SP: Obtener Request por ID
+CREATE PROCEDURE sp_get_request_by_id
+    @Id_request INT
+AS
+BEGIN
+    SELECT * FROM Request WHERE Id_request = @Id_request;
+END
+GO
+

@@ -13,6 +13,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICityService, CityService>();
 builder.Services.AddScoped<IOfficeService, OfficeService>();
+builder.Services.AddScoped<IRequestService, RequestService>();
 
     
 // Add services to the container.

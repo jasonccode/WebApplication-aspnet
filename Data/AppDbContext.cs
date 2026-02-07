@@ -18,5 +18,6 @@ namespace WebApplication_aspnet.Data
         public DbSet<User> Users { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Office> Offices { get; set; }
+        public DbSet<Request> Requests { get; set; }
     }
 }

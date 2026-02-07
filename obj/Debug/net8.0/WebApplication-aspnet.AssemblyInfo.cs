@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebApplication-aspnet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f305cc1d1725a37a338490ba1aca164cb82731c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1feb212400b997dcf4069f0f5b95c8ce875e1c34")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebApplication-aspnet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebApplication-aspnet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,28 @@
+@model WebApplication_aspnet.Models.User
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<h1>Eliminar Usuario</h1>
+
+<h3>¿Estás seguro de que deseas eliminar esto?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">Nombre</dt>
+        <dd class = "col-sm-10">@Html.DisplayFor(model => model.Sname)</dd>
+
+        <dt class = "col-sm-2">Apellido</dt>
+        <dd class = "col-sm-10">@Html.DisplayFor(model => model.Slast_name)</dd>
+        
+        <dt class = "col-sm-2">Correo</dt>
+        <dd class = "col-sm-10">@Html.DisplayFor(model => model.Semail)</dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Nid_user" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

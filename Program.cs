@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using Microsoft.EntityFrameworkCore;
 using WebApplication_aspnet.Data;
 using WebApplication_aspnet.Interfaces;
@@ -14,6 +15,16 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICityService, CityService>();
 builder.Services.AddScoped<IOfficeService, OfficeService>();
 builder.Services.AddScoped<IRequestService, RequestService>();
+builder.Services.AddScoped<IUserApiService, UserApiService>();
+
+// Registra y configura un cliente HTTP con nombre para tu API.
+builder.Services.AddHttpClient("ClientApi", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5245/api/");
+    client.DefaultRequestHeaders.Accept.Clear();
+    client.DefaultRequestHeaders.Accept.Add(
+        new MediaTypeWithQualityHeaderValue("application/json"));
+});
 
     
 // Add services to the container.

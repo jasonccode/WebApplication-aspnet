@@ -50,6 +50,10 @@ namespace WebApplication_aspnet.Controllers
             if (ModelState.IsValid)
             {
                 await _requestService.AddAsync(request);
+
+                TempData["Mensaje"] = "La solicitud se ha creado correctamente.";
+                TempData["Tipo"] = "success"; // success, error, warning, info
+
                 return RedirectToAction(nameof(Index));
             }
             return View(request);
@@ -78,6 +82,10 @@ namespace WebApplication_aspnet.Controllers
                 try
                 {
                     await _requestService.UpdateAsync(request);
+
+                    TempData["Mensaje"] = "La solicitud se ha actualizado correctamente.";
+                    TempData["Tipo"] = "success"; // success, error, warning, info
+
                 }
                 catch (Exception)
                 {
@@ -114,6 +122,10 @@ namespace WebApplication_aspnet.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _requestService.DeleteAsync(id);
+
+            TempData["Mensaje"] = "La solicitud se ha eliminado correctamente.";
+            TempData["Tipo"] = "success"; // success, error, warning, info
+
             return RedirectToAction(nameof(Index));
         }
     }

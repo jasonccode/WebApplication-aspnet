@@ -51,6 +51,10 @@ namespace WebApplication_aspnet.Controllers
             if (ModelState.IsValid)
             {
                 await _userApiService.AddAsync(user);
+
+                TempData["Mensaje"] = "El usuario se ha creado correctamente.";
+                TempData["Tipo"] = "success"; // success, error, warning, info
+
                 return RedirectToAction(nameof(Index));
             }
             return View(user);
@@ -77,6 +81,9 @@ namespace WebApplication_aspnet.Controllers
                 try
                 {
                     await _userApiService.UpdateAsync(user);
+
+                    TempData["Mensaje"] = "El usuario se ha actualizado correctamente.";
+                    TempData["Tipo"] = "success"; // success, error, warning, info
                 }
                 catch (Exception)
                 {
@@ -113,6 +120,10 @@ namespace WebApplication_aspnet.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _userApiService.DeleteAsync(id);
+
+            TempData["Mensaje"] = "El usuario se ha eliminado correctamente.";
+            TempData["Tipo"] = "success"; // success, error, warning, info
+
             return RedirectToAction(nameof(Index));
         }
     }

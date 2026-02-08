@@ -50,6 +50,10 @@ namespace WebApplication_aspnet.Controllers
             if (ModelState.IsValid)
             {
                 await _cityService.AddAsync(city);
+
+                TempData["Mensaje"] = "La ciudad se ha creado correctamente.";
+                TempData["Tipo"] = "success"; // success, error, warning, info
+
                 return RedirectToAction(nameof(Index));
             }
             return View(city);
@@ -78,6 +82,9 @@ namespace WebApplication_aspnet.Controllers
                 try
                 {
                     await _cityService.UpdateAsync(city);
+
+                    TempData["Mensaje"] = "La ciudad se ha actualizado correctamente.";
+                    TempData["Tipo"] = "success"; // success, error, warning, info
                 }
                 catch (Exception)
                 {
@@ -114,6 +121,10 @@ namespace WebApplication_aspnet.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _cityService.DeleteAsync(id);
+
+            TempData["Mensaje"] = "La ciudad se ha eliminado correctamente.";
+            TempData["Tipo"] = "success"; // success, error, warning, info
+
             return RedirectToAction(nameof(Index));
         }
     }

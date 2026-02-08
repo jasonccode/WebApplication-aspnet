@@ -8,7 +8,7 @@
 <hr />
 <div class="row">
     <div class="col-md-6">
-        <form asp-action="Edit">
+        <form asp-action="Edit" id="formEditar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
             <input type="hidden" asp-for="Nid_office" />
@@ -32,7 +32,7 @@
             </div>
 
             <div class="form-group mt-3">
-                <input type="submit" value="Guardar Cambios" class="btn btn-primary" />
+                <input type="button" value="Guardar Cambios" class="btn btn-primary" onclick="confirmarEdicion()" />
                 <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
@@ -41,4 +41,23 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        function confirmarEdicion() {
+            Swal.fire({
+                title: '¿Guardar cambios?',
+                text: "¿Estás seguro de que la información es correcta?",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, guardar',
+                cancelButtonText: 'Revisar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('formEditar').submit();
+                }
+            });
+        }
+    </script>
 }

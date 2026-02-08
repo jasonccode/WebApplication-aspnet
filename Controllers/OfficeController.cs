@@ -25,7 +25,7 @@ namespace WebApplication_aspnet.Controllers
         }
 
         public async Task<IActionResult> Details(int id)
-        {   
+        {
             var office = await _officeService.GetByIdAsync(id);
             if (office == null)
             {
@@ -46,6 +46,10 @@ namespace WebApplication_aspnet.Controllers
             if (ModelState.IsValid)
             {
                 await _officeService.AddAsync(office);
+
+                TempData["Mensaje"] = "La oficina se ha creado correctamente.";
+                TempData["Tipo"] = "success"; // success, error, warning, info
+
                 return RedirectToAction(nameof(Index));
             }
             return View(office);
@@ -73,6 +77,10 @@ namespace WebApplication_aspnet.Controllers
             if (ModelState.IsValid)
             {
                 await _officeService.UpdateAsync(office);
+
+                TempData["Mensaje"] = "La oficina se ha actualizado correctamente.";
+                TempData["Tipo"] = "success"; // success, error, warning, info
+
                 return RedirectToAction(nameof(Index));
             }
             return View(office);
@@ -93,6 +101,10 @@ namespace WebApplication_aspnet.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _officeService.DeleteAsync(id);
+
+            TempData["Mensaje"] = "La oficina se ha eliminado correctamente.";
+            TempData["Tipo"] = "success"; // success, error, warning, info
+
             return RedirectToAction(nameof(Index));
         }
     }

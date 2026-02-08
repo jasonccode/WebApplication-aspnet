@@ -137,3 +137,69 @@ BEGIN
 END
 GO
 
+
+-- =============================================
+-- 4. PROCEDIMIENTOS ALMACENADOS PARA LA TABLA USERS
+-- =============================================
+
+-- SP: Listar User
+CREATE PROCEDURE sp_get_all_users
+AS
+BEGIN
+    SELECT *
+    FROM Users;
+END
+GO
+
+-- SP: Insertar User
+CREATE PROCEDURE sp_add_user
+    @Sname NVARCHAR(100),
+    @Slast_name NVARCHAR(100),
+    @Semail NVARCHAR(150),
+    @Saddress NVARCHAR(100),
+    @Nphone BIGINT
+AS
+BEGIN
+    INSERT INTO Users
+        (Sname, Slast_name, Semail, Saddress, Nphone, Dcreated_at)
+    VALUES
+        (@Sname, @Slast_name, @Semail, @Saddress, @Nphone, GETDATE());
+END
+GO
+
+-- SP: Actualizar User
+CREATE PROCEDURE sp_update_user
+    @Nid_user INT,
+    @Sname NVARCHAR(100),
+    @Slast_name NVARCHAR(100),
+    @Semail NVARCHAR(150),
+    @Saddress NVARCHAR(100),
+    @Nphone INT
+AS
+BEGIN
+    UPDATE Users
+    SET Sname =@Sname, Slast_name = @Slast_name, Semail = @Semail, Saddress = @Saddress, Nphone = @Nphone
+    WHERE Nid_user = @Nid_user;
+END
+GO
+
+-- SP: Eliminar User
+CREATE PROCEDURE sp_delete_user
+    @Nid_user INT
+AS
+BEGIN
+    DELETE FROM Users WHERE Nid_user = @Nid_user;
+END
+GO
+
+--SP: Obtener User por ID
+CREATE PROCEDURE sp_get_user_by_id
+    @Nid_user INT
+AS
+BEGIN
+    SELECT *
+    FROM Users
+    WHERE Nid_user = @Nid_user;
+END
+GO
+

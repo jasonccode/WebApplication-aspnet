@@ -42,3 +42,20 @@
         </tbody>
     </table>
 </div>
+
+@section Scripts {
+    <script>
+        // Leemos el valor de TempData desde C#
+        var mensaje = '@TempData["Mensaje"]';
+        var tipo = '@TempData["Tipo"]';
+
+        if (mensaje && mensaje !== '') {
+            Swal.fire({
+                title: '¡Hecho!',
+                text: mensaje,
+                icon: tipo, // success, error, warning
+                confirmButtonText: 'Aceptar'
+            });
+        }
+    </script>
+}

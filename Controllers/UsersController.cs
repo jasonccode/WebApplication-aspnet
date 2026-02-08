@@ -28,7 +28,7 @@ namespace WebApplication_aspnet.Controllers
             if (id == null) return NotFound();
 
             var user = await _userService.GetByIdAsync(id.Value);
-            
+
             if (user == null) return NotFound();
 
             return View(user);
@@ -48,6 +48,10 @@ namespace WebApplication_aspnet.Controllers
             if (ModelState.IsValid)
             {
                 await _userService.AddAsync(user);
+
+                TempData["Mensaje"] = "El usuario se ha creado correctamente.";
+                TempData["Tipo"] = "success"; // success, error, warning, info
+
                 return RedirectToAction(nameof(Index));
             }
             return View(user);
@@ -74,6 +78,9 @@ namespace WebApplication_aspnet.Controllers
                 try
                 {
                     await _userService.UpdateAsync(user);
+
+                    TempData["Mensaje"] = "El usuario se ha actualizado correctamente.";
+                    TempData["Tipo"] = "success"; // success, error, warning, info
                 }
                 catch (Exception)
                 {
@@ -85,7 +92,7 @@ namespace WebApplication_aspnet.Controllers
                     }
                     else
                     {
-                        throw; 
+                        throw;
                     }
                 }
                 return RedirectToAction(nameof(Index));
@@ -110,6 +117,10 @@ namespace WebApplication_aspnet.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _userService.DeleteAsync(id);
+
+            TempData["Mensaje"] = "El usuario se ha eliminado correctamente.";
+            TempData["Tipo"] = "success"; // success, error, warning, info
+
             return RedirectToAction(nameof(Index));
         }
     }

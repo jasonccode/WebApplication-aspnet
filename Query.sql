@@ -203,3 +203,25 @@ BEGIN
 END
 GO
 
+-- =============================================
+-- 5. EJEMPLO DE RELACIONES ENTRE TABLAS
+-- =============================================
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY IDENTITY(1,1),
+    FirstName NVARCHAR(50) NOT NULL,
+    LastName NVARCHAR(50) NOT NULL,
+    Email NVARCHAR(100) UNIQUE,        -- UNIQUE: No permite correos repetidos
+    HireDate DATE NOT NULL,
+    IsActive BIT DEFAULT 1,            -- BIT es el boolean de SQL (1=True, 0=False)
+    
+    -- La Relación:
+    DepartmentID INT,                  -- Debe ser del mismo tipo que la PK de Departments
+    
+    -- CONSTRAINT (La Regla):
+    CONSTRAINT FK_Employees_Departments 
+    FOREIGN KEY (DepartmentID) 
+    REFERENCES Departments(DepartmentID)
+    ON DELETE NO ACTION -- Evita borrar un departamento si tiene empleados
+);
+GO
